@@ -18,7 +18,7 @@ import java.sql.SQLOutput;
 @Component
 public class GithubProvider {
   public String getAccessToken(AccessTokenDTO accessTokenDTO){
-    MediaType mediaType = MediaType.get("application/json");
+    MediaType mediaType = MediaType.get("application/json; charset=utf-8");
 
     OkHttpClient client = new OkHttpClient();
 
