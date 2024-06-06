@@ -1,0 +1,48 @@
+body{
+    background-color: #efefef;
+}
+.main {
+    background-color: white;
+    margin: 30px;
+}
+
+.btn-publish{
+    float: right;
+    margin-bottom: 15px;
+}
+
+.media-object {
+    width: 38px;
+    height: 38px;
+}
+
+.text-desc {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
+}
+
+/*
+
+The .profile .section part is a selector that targets HTML elements with the class
+section that are nested within elements with the class profile. Here’s a breakdown:
+.profile: This selects all elements with the class profile.
+.section: This selects all elements with the class section.
+.profile .section: When combined with a space, it selects all .section elements that are
+descendants of .profile elements. So, the CSS rule will apply a margin-top of 15px to all
+elements with the class section that are inside of any element with the class profile.
+It’s a way to style specific parts of your webpage that fall under a certain category or
+section.
+*/
+.profile .section {
+    margin-top: 15px;
+}
+
+.community-menu {
+    color: #999;
+    font-size: 13px;
+}
+
+.error-page {
+    margin: 50px;
+}

@@ -12,6 +12,10 @@
 ## 工具
 [Git](https://git-scm.com/)
 [Visual Paradigm](https://www.visual-paradigm.com/)
+[Flyway](https://documentation.red-gate.com/flyway/getting-started-with-flyway/quickstart-guides/quickstart-maven)
+[Lombok](https://projectlombok.org/features/)
+[Thymeleaf](https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#setting-attribute-values)
+[Spring Interception](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-servlet/handlermapping-interceptor.html)
 
 ## 脚本
 ```sql
@@ -25,4 +29,8 @@ GMT_CREATE   BIGINT,
 GMT_MODIFIED BIGINT,
 PASSWORD     CHARACTER VARYING(100)
 );
+```
+```bash
+mvn flyway:migrate
+mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```

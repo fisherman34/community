@@ -1,0 +1,1 @@
+alter table USERTABLE add avatar_url VARCHAR(100) NULL;

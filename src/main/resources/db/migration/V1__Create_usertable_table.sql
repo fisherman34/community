@@ -1,6 +1,6 @@
 create table PUBLIC.USERTABLE
 (
-    ID           INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    ID           INT AUTO_INCREMENT PRIMARY KEY,
     ACCOUNT_ID   VARCHAR(100),
     NAME         VARCHAR(50),
     TOKEN        CHAR(36),

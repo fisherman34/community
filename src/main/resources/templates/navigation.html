@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="nav">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">码匠社区</span>
+                    </button>
+                    <a class="navbar-brand" href="/">码匠社区</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="搜索问题">
+                        </div>
+                        <button type="submit" class="btn btn-default">搜索</button>
+                    </form>
+                    <ul class="nav nav-tabs navbar-nav navbar-right">
+                        <li th:if="${session.user !=null}">
+                            <a href="/publish">提问</a>
+                        </li>
+                        <!--
+                        session refers to the HTTP session object that is used to track user
+                        interaction with a web application across multiple HTTP requests. When
+                        you see ${session.user} in the Thymeleaf template, it’s accessing the user
+                        attribute from the session. The session data is managed on the server side,
+                        and Thymeleaf expressions are evaluated on the server before the final HTML
+                        is sent to the client’s browser.
+                        -->
+                        <li role="presentation" class="dropdown" th:if="${session.user !=null}">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                               aria-expanded="false">
+                                <span th:text="${session.user.getName()}"></span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/profile/questions">我的问题</a></li>
+                                <li><a href="/logout">退出登录</a></li>
+                            </ul>
+                        </li>
+                        <li th:if="${session.user ==null}">
+                            <a href="https://github.com/login/oauth/authorize?client_id=39bebcd732c20993eed0&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>
+
+
+
+
