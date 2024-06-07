@@ -29,7 +29,14 @@ public class SessionInterceptor implements HandlerInterceptor {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-    /** 请求cookie,是用request.getCookies()来获取cookie */
+    /**
+     * What interceptor do:
+     * 1.Retrieve the token from the cookie in the incoming request.
+     * 2.Use this token to look up the User object from the database.
+     * 3.Store the User object in the session: request.getSession().setAttribute("user", user);.
+     * Then, other controller methods, can retrieve the User object from the session
+     *
+     * 请求cookie,是用request.getCookies()来获取cookie */
     Cookie[] cookies = request.getCookies();
     if(cookies !=null && cookies.length !=0) {
       for (Cookie cookie : cookies) {

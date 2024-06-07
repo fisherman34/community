@@ -33,6 +33,7 @@
         <!-- domainObjectName就选择Spring Boot项目里的model包下面Java类的名字 -->
         <table tableName="usertable" domainObjectName="User" ></table>
         <table tableName="question" domainObjectName="Question" ></table>
+        <table tableName="comment" domainObjectName="Comment" ></table>
 
     </context>
 </generatorConfiguration>
