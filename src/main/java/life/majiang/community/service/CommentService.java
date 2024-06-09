@@ -10,6 +10,7 @@ import life.majiang.community.model.Comment;
 import life.majiang.community.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Sam
@@ -27,6 +28,10 @@ public class CommentService {
 
   @Autowired
   private QuestionExtMapper questionExtMapper;
+
+  /** @Transactional注解使下面方法包裹在一个事物里面，如果commentMapper.insert执行成功，而questionExtMapper.incCommentCount
+   * 执行失败时，事物会全部回滚掉 */
+  @Transactional
   public void insert(Comment comment) throws CustomizeException {
     if(comment.getParentId() == null) {
       throw new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
