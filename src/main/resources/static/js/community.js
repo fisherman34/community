@@ -21,7 +21,20 @@ function post() {
             if(response.code == 200) {
                 $("#comment_section").hide();
             } else {
-                alert(response.message);
+                if (response.code== 2003) {
+                    var isAccepted = confirm(response.message);
+                    if( isAccepted){  //If the user clicks OK, the isAccepted variable will be true
+                        /*
+                        window is a global object in JavaScript. It represents the browser’s window in which the
+                        JavaScript is currently executing. All global JavaScript objects, functions, and variables
+                        automatically become members of the window object.
+                         */
+                        window.open("https://github.com/login/oauth/authorize?client_id=39bebcd732c20993eed0&redirect_uri=http://localhost:8887/callback&scope=user&state=1")
+                        window.localStorage.setItem("closable", true);
+                    }
+                } else {
+                    alert(response.message);
+                }
             }
             console.log(response);
         },

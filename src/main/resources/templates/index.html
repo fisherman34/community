@@ -9,6 +9,20 @@
     <script src="/js/jquery-3.7.1.min.js" type="application/javascript"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
 </head>
+<!--
+ The script is executed because it’s assigned to the window.onload event. This event
+ is fired when the entire web page (including all images, scripts, CSS files, etc.) has
+ completely loaded.
+ -->
+<script type="application/javascript">
+    window.onload = function () {
+        var closable = window.localStorage.getItem("closable");
+        if (closable == "true") {
+            window.close();
+            window.localStorage.removeItem("closable")
+        }
+    }
+</script>
 <body>
 <div th:insert="navigation :: nav"></div>
 <div class="container-fluid main">
