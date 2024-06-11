@@ -47,6 +47,22 @@ section.
     margin-top: 25px;
 }
 
+.question-tag {
+    margin-right: 5px;
+}
+
+.question-related {
+    line-height: 20px;
+    font-size: 12px;
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.question-wechat {
+    width: 100%;
+}
+
 .community-menu {
     display:block;;
     color: #999;
