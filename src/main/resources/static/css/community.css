@@ -7,6 +7,28 @@ body {
     margin: 30px;
 }
 
+
+.signup-align {
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+    height: 100vh;
+}
+
+.inner-form {
+    background-color:#ffffff;
+    width: 35%;  /* Set the width */
+    height: 50%;
+    border: 2px solid #d9d9d9;
+}
+
+.inner-form-signup {
+    background-color:#ffffff;
+    width: 35%;  /* Set the width */
+    height: 62%;
+    border: 2px solid #d9d9d9;
+}
+
 .btn-publish {
     float: right;
     margin-bottom: 15px;
@@ -57,6 +79,26 @@ section.
     margin-left: 0;
     padding-left: 0;
     list-style: none;
+}
+
+.question-most-viewed {
+    line-height: 25px;
+    font-size: 15px;
+    margin-left: 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.question-most-viewed li {
+    margin-bottom: 9px; /* Adjust this value to increase or decrease the space */
+}
+
+.question-description {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .question-wechat {

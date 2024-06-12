@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="life.majiang.community.mapper.UserExtMapper">
+  <resultMap id="BaseResultMap" type="life.majiang.community.model.User">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="ACCOUNT_ID" jdbcType="VARCHAR" property="accountId" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="TOKEN" jdbcType="CHAR" property="token" />
+    <result column="GMT_CREATE" jdbcType="BIGINT" property="gmtCreate" />
+    <result column="GMT_MODIFIED" jdbcType="BIGINT" property="gmtModified" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="BIO" jdbcType="VARCHAR" property="bio" />
+    <result column="AVATAR_URL" jdbcType="VARCHAR" property="avatarUrl" />
+  </resultMap>
+
+  <select id="selectMaxId" resultType="java.lang.Long">
+    select max(ID) from USERTABLE
+  </select>
+</mapper>

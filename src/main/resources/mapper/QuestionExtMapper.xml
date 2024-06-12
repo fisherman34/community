@@ -32,4 +32,10 @@
 
   </select>
 
+  <select id="selectTopViewedQuestions" resultMap="BaseResultMap">
+    SELECT * FROM QUESTION
+    ORDER BY VIEW_COUNT DESC
+      LIMIT 5
+  </select>
+
 </mapper>

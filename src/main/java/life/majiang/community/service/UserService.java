@@ -1,5 +1,6 @@
 package life.majiang.community.service;
 
+import life.majiang.community.mapper.UserExtMapper;
 import life.majiang.community.mapper.UserMapper;
 import life.majiang.community.model.User;
 import life.majiang.community.model.UserExample;
@@ -19,6 +20,9 @@ public class UserService {
 
   @Autowired
   private UserMapper userMapper;
+
+  @Autowired
+  private UserExtMapper userExtMapper;
 
   public void createOrUpdate(User user) {
     UserExample userExample = new UserExample();
@@ -43,5 +47,32 @@ public class UserService {
               .andIdEqualTo(dbUser.getId());
       userMapper.updateByExampleSelective(updateUser, example);
     }
+  }
+
+  public User getByName(String username) {
+
+    UserExample userExample = new UserExample();
+    userExample.createCriteria()
+            .andNameEqualTo(username);
+    List<User> users = userMapper.selectByExample(userExample);
+    if(users.size() > 0) {
+      return users.get(0);
+    } else {
+      return null;
+    }
+
+  }
+
+  public Long getMaxId() {
+    Long maxId = userExtMapper.selectMaxId();
+    return maxId;
+
+  }
+
+  public Long accountIdPlus(Long maxId) {
+    User lastUser = userMapper.selectByPrimaryKey(maxId);
+    String LastAccountId = lastUser.getAccountId();
+    Long lastAccountIdPlus = Long.valueOf(LastAccountId);
+    return lastAccountIdPlus + 1L;
   }
 }

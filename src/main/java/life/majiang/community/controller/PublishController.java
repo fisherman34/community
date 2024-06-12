@@ -66,6 +66,8 @@ public class PublishController {
     model.addAttribute("description", description);
     model.addAttribute("tag", tag);
 
+    description = description.replace("\n", "<br>");
+
     if(title == null || title == "") {
       model.addAttribute("error", "标题不能为空");
       return "publish";

@@ -196,4 +196,15 @@ public class QuestionService {
 
     return questionDTOS;
   }
+
+  public List<QuestionDTO> selectTopViewedQuestions() {
+    List<Question> questions = questionExtMapper.selectTopViewedQuestions();
+
+    List<QuestionDTO> questionDTOS = questions.stream().map(q -> {
+      QuestionDTO questionDTO = new QuestionDTO();
+      BeanUtils.copyProperties(q, questionDTO);
+      return questionDTO;
+    }).collect(Collectors.toList());
+    return questionDTOS;
+  }
 }

@@ -7,9 +7,9 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">码匠社区</span>
+                        <span class="sr-only">聊天社区</span>
                     </button>
-                    <a class="navbar-brand" href="/">码匠社区</a>
+                    <a class="navbar-brand" href="/">聊天社区</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -43,7 +43,8 @@
                             </ul>
                         </li>
                         <li th:if="${session.user ==null}">
-                            <a href="https://github.com/login/oauth/authorize?client_id=39bebcd732c20993eed0&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a>
+<!--                            <a href="https://github.com/login/oauth/authorize?client_id=39bebcd732c20993eed0&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a>-->
+                            <a href="/login">登录</a>
                         </li>
                     </ul>
                 </div>
