@@ -1,4 +1,4 @@
-create table PUBLIC.USERTABLE
+create table USERTABLE
 (
     ID           INT AUTO_INCREMENT PRIMARY KEY,
     ACCOUNT_ID   VARCHAR(100),
