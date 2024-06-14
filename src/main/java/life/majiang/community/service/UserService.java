@@ -71,7 +71,12 @@ public class UserService {
 
   public Long accountIdPlus(Long maxId) {
     User lastUser = userMapper.selectByPrimaryKey(maxId);
-    String LastAccountId = lastUser.getAccountId();
+    String LastAccountId = null;
+    if(lastUser == null) {
+       LastAccountId =  "0";
+    } else {
+       LastAccountId = lastUser.getAccountId();
+    }
     Long lastAccountIdPlus = Long.valueOf(LastAccountId);
     return lastAccountIdPlus + 1L;
   }
