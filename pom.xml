@@ -139,7 +139,7 @@
                 <configuration>
                     <url>jdbc:mysql://localhost/maven</url>
                     <user>root</user>
-                    <password>Hm;571028</password>
+                    <password>Hm571028</password>
                 </configuration>
                 <dependencies>
                     <dependency>
