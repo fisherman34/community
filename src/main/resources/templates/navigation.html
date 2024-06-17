@@ -7,9 +7,9 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">聊天社区</span>
+                        <span class="sr-only">Chat Plaza</span>
                     </button>
-                    <a class="navbar-brand" href="/">聊天社区</a>
+                    <a class="navbar-brand" href="/">Chat Plaza</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -21,7 +21,7 @@
 <!--                    </form>-->
                     <ul class="nav nav-tabs navbar-nav navbar-right">
                         <li th:if="${session.user !=null}">
-                            <a href="/publish">提问</a>
+                            <a href="/publish">投稿する</a>
                         </li>
                         <!--
                         session refers to the HTTP session object that is used to track user
@@ -38,13 +38,13 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="/profile/questions">我的问题</a></li>
-                                <li><a href="/logout">退出登录</a></li>
+                                <li><a href="/profile/questions">私の投稿</a></li>
+                                <li><a href="/logout">ログアウト</a></li>
                             </ul>
                         </li>
                         <li th:if="${session.user ==null}">
 <!--                            <a href="https://github.com/login/oauth/authorize?client_id=39bebcd732c20993eed0&redirect_uri=http://localhost:8887/callback&scope=user&state=1">登录</a>-->
-                            <a href="/login">登录</a>
+                            <a href="/login">ログイン</a>
                         </li>
                     </ul>
                 </div>

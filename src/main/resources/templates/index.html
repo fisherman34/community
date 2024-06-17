@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>聊天社区</title>
+    <title>Chat Plaza</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
@@ -28,7 +28,7 @@
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h2>
+            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>  トピック一覧</h2>
             <br>
             <!--
             action: Specifies where to send the form-data when a form is submitted
@@ -46,8 +46,8 @@
                         <a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
                     </h4>
                     <span class="question-description" th:utext="${question.description}"></span> <br>
-                    <span class="text-desc"><span th:text="${question.commentCount}"></span> 个回复 ・
-                        <span th:text="${question.viewCount}"></span> 次浏览 ・ <span th:text="${#dates.format(question.gmtCreate, 'yyyy年MM月dd日 HH:mm')}"></span></span>
+                    <span class="text-desc"><span th:text="${question.commentCount}"></span> コメント ・
+                        <span th:text="${question.viewCount}"></span> ビュー ・ <span th:text="${#dates.format(question.gmtCreate, 'yyyy/MM/dd HH:mm')}"></span></span>
                 </div>
             </div>
             <nav aria-label="Page navigation">
@@ -81,7 +81,7 @@
             </nav>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>最多浏览问题</h3>
+            <h3>最も閲覧されたトピック</h3>
             <ul class="question-most-viewed">
                 <li th:each="question : ${topViewedQuestions}">
                     <a th:href="@{'/question/'+ ${question.id}}" th:text="${question.title}"></a>

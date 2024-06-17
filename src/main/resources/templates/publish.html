@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>发布 - 聊天社区</title>
+    <title>投稿する - Chat Plaza</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
@@ -14,7 +14,7 @@
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 发起</h2>
+            <h2><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> トピックを投稿する</h2>
             <hr>
             <!--
             action: Specifies where to send the form-data when a form is submitted
@@ -32,20 +32,20 @@
                     The for attribute must be the same as the input’s id attribute
                     to ensure they are associated.
                     -->
-                    <label for="title">问题标题（简单扼要）</label>
+                    <label for="title">タイトルを書く</label>
                     <!--
                     The name="title" attribute is used to identify the field’s data
                     when the form is submitted
                     -->
-                    <input type="text" class="form-control" th:value="${title}" id="title" name="title" placeholder="问题标题......">
+                    <input type="text" class="form-control" th:value="${title}" id="title" name="title" placeholder="タイトル......">
                 </div>
                 <div class="form-group">
-                    <label for="description">问题补充 (必填，请参照右侧提示):</label>
+                    <label for="description">本文を書く</label>
                     <textarea name="description" id="description" th:text="${description}" class="form-control" cols="30" rows="10"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="tag">添加标签:</label>
-                    <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" placeholder="输入标签，以逗号分隔">
+                    <label for="tag">キーワードを加える</label>
+                    <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" placeholder="キーワードを入力してください">
                 </div>
                 <div class="container-fluid main">
                     <div class="row">
@@ -55,7 +55,7 @@
                         </div>
                         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                             <button type="submit" class="btn btn-success btn-publish">
-                                发布
+                                投稿する
                             </button>
                         </div>
 
@@ -65,11 +65,12 @@
             </form>
         </div>
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <h3>发起问题指南</h3>
-            在提出问题时，请简明扼要地描述您的疑问，并提供相关背景信息。建议遵循以下格式：<br>
-            1. 简短明确的标题<br>
-            2. 详细的问题描述<br>
-            选择标签: 选择一个或者多个合适的标签，用逗号隔开，每个标签不超过十个字<br>
+            <h3>トピック投稿のヒント</h3>
+            1. わかりやすいタイトル<br>
+            トピックの内容をイメージしやすいタイトルを心がけてください。<br>
+            <br>
+            2. 本文で具体的に<br>
+            ほかの人がコメントしやすいよう、具体的に本文を記入しましょう。<br>
         </div>
     </div>
 </div>

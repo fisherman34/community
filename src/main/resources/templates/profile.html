@@ -31,8 +31,8 @@
           <a th:href="@{'/question/'+${question.id}}">
             <h4 class="media-heading" th:text="${question.title}"></h4>
           </a>
-          <span class="text-desc"><span th:text="${question.commentCount}"></span> 个回复 ・ <span
-                                th:text="${question.viewCount}"></span> 次浏览 ・ <span
+          <span class="text-desc"><span th:text="${question.commentCount}"></span> コメント ・ <span
+                                th:text="${question.viewCount}"></span> ビュー ・ <span
                                 th:text="${#dates.format(question.gmtCreate, 'yyyy年MM月dd日 HH:mm')}"></span></span>
         </div>
       </div>
@@ -68,9 +68,9 @@
     </div>
     <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
       <div class="list-group section">
-        <a href="/profile/questions" th:class="${section == 'questions'}? 'active list-group-item' : 'list-group-item'">我的问题</a>
+        <a href="/profile/questions" th:class="${section == 'questions'}? 'active list-group-item' : 'list-group-item'">私の投稿</a>
         <a href="/profile/replies" th:class="${section == 'replies'}? 'active list-group-item' : 'list-group-item'">
-          最新回复
+          最新の返信
           <span class="badge"></span>
         </a>
       </div>

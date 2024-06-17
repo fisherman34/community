@@ -29,10 +29,10 @@ public class CustomizeErrorController implements ErrorController {
     HttpStatus status = getStatus(request);
 
     if (status.is4xxClientError()){
-      model.addAttribute("message", "你这个请求错了吧，要不然换个姿势？");
+      model.addAttribute("message", "アクセスしたリンクが間違っています、再試行してください");
     }
     if (status.is5xxServerError()) {
-      model.addAttribute("message", "服务冒烟了，要不你稍后再试试！！！");
+      model.addAttribute("message", "サービスにエラーが発生しました、後ほど再試行してください");
     }
     return new ModelAndView("error");
   }

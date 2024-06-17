@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>注 册</title>
+    <title>ユーザー登録</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
@@ -16,20 +16,20 @@
 
 <div class="container-fluid signup-align">
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 inner-form-signup">
-        <h2>注册页面</h2>
+        <h2>ユーザー登録画面</h2>
         <br>
         <form action="/signup" method="post">
             <div class="form-group">
-                <label for="exampleInputEmail1">帐号</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" th:value="${username}" name="username" placeholder="输入帐号">
+                <label for="exampleInputEmail1">ユーザーID</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" th:value="${username}" name="username" placeholder="ユーザーIDを入力してください">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">密码</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password1" placeholder="输入密码">
+                <label for="exampleInputPassword1">パスワード</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password1" placeholder="パスワードを入力してください">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword2">确认密码</label>
-                <input type="password" class="form-control" id="exampleInputPassword2" name="password2" placeholder="请再次输入密码">
+                <label for="exampleInputPassword2">パスワード(再入力)</label>
+                <input type="password" class="form-control" id="exampleInputPassword2" name="password2" placeholder="パスワードを再入力してください">
             </div>
             <div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -41,12 +41,12 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="display: flex; flex-direction: column; align-items: center;">
                     <div>
-                        <button type="submit" class="btn btn-default">注册</button>
+                        <button type="submit" class="btn btn-default">ユーザー登録</button>
                     </div>
                     <br>
                     <div>
-                        <div style="display: flex;">
-                            已有帐号？<a href="/login">登录</a>
+                        <div style="display: flex; justify-content: center;">
+                            <a href="/login">ログイン画面へ</a>
                         </div>
                     </div>
                 </div>

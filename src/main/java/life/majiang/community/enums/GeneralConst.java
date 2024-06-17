@@ -7,19 +7,19 @@ package life.majiang.community.enums;
 public class GeneralConst {
 
   /** 帐号不能为空 */
-  public static final String USERNAME_EMPTY = "用户名不能为空";
+  public static final String USERNAME_EMPTY = "ユーザーIDは空白にできません";
 
   /** 密码不能为空 */
-  public static final String PASSWORD_EMPTY = "密码不能为空";
+  public static final String PASSWORD_EMPTY = "パスワードは空白にできません";
 
-  public static final String USER_NOT_EXIST = "帐号不存在";
-  public static final String PASSWORD_NOT_CORRECT = "密码不正确";
-  public static final String PASSWORD_NOT_MATCH = "两次输入的密码不一致";
-  public static final String USERNAME_CONTAINS_WHITESPACE = "用户名中不能包含空格";
-  public static final String PASSWORD_CONTAINS_WHITESPACE = "密码中不能包含空格";
-  public static final String USERNAME_LENGTH_NOT_CORRECT = "用户名应当大于2个字符，小于20个字符";
-  public static final String PASSWORD_LENGTH_NOT_CORRECT = "密码应当大于5个字符，小于20个字符";
-  public static final String USERNAME_ALREADY_EXIST = "该用户名已存在，请换一个试试";
+  public static final String USER_NOT_EXIST = "ユーザーIDが存在しません";
+  public static final String PASSWORD_NOT_CORRECT = "パスワードが正しくありません";
+  public static final String PASSWORD_NOT_MATCH = "二度入力されたパスワードが一致しません";
+  public static final String USERNAME_CONTAINS_WHITESPACE = "ユーザーIDにはスペースを含めることはできません";
+  public static final String PASSWORD_CONTAINS_WHITESPACE = "パスワードにはスペースを含めることはできません";
+  public static final String USERNAME_LENGTH_NOT_CORRECT = "ユーザーIDは2文字以上、20文字以下であるべきです";
+  public static final String PASSWORD_LENGTH_NOT_CORRECT = "パスワードは5文字以上、20文字以下であるべきです密码";
+  public static final String USERNAME_ALREADY_EXIST = "このユーザーIDは既に存在します、別のものをお試しください";
 
 
 }

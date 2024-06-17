@@ -69,22 +69,22 @@ public class PublishController {
     description = description.replace("\n", "<br>");
 
     if(title == null || title == "") {
-      model.addAttribute("error", "标题不能为空");
+      model.addAttribute("error", "タイトルは空欄にできません");
       return "publish";
     }
     if(description == null || description == "") {
-      model.addAttribute("error", "问题补充不能为空");
+      model.addAttribute("error", "本文は空欄にできません");
       return "publish";
     }
     if(tag == null || tag == "") {
-      model.addAttribute("error", "标签不能为空");
+      model.addAttribute("error", "キーワードは空欄にできません");
       return "publish";
     }
 
     User user = (User) request.getSession().getAttribute("user");
 
     if(user == null ){
-      model.addAttribute("error", "用户未登录");
+      model.addAttribute("error", "ユーザーがログインしていません");
       return "publish";
     }
 

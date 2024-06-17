@@ -45,10 +45,10 @@ public class ProfileController {
 
     if("questions".equals(action)) {  //如果访问的链接为/profile/questions，则..
       model.addAttribute("section", "questions");
-      model.addAttribute("sectionName", "我的提问");
+      model.addAttribute("sectionName", "私の投稿");
     } else if ("replies".equals(action)) {
       model.addAttribute("section", "replies");
-      model.addAttribute("sectionName", "最新回复");
+      model.addAttribute("sectionName", "最新の返信");
     }
 
     PaginationDTO paginationDTO = questionService.list(user.getId(), page, size);

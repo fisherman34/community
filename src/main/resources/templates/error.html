@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>聊天社区</title>
+    <title>Chat Plaza</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
@@ -13,9 +13,9 @@
 <body>
 <div th:insert="navigation :: nav"></div>
 <div class="jumbotron error-page">
-    <h1>出错啦！！！</h1>
-    <p th:text="${message}">服务太热啦，要不稍等下再来试试</p>
-    <p><a class="btn btn-primary btn-lg" href="/" role="button">回到主页</a></p>
+    <h1>エラーが発生しました！</h1>
+    <p th:text="${message}">サーバーが混雑しておりますので、後ほど再度お試しください</p>
+    <p><a class="btn btn-primary btn-lg" href="/" role="button">ホームページに戻る</a></p>
 </div>
 </body>
 </html>

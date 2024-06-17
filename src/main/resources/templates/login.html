@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>登 录</title>
+    <title>ログイン</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
@@ -16,16 +16,16 @@
 
 <div class="container-fluid signup-align">
     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 inner-form">
-        <h2>登录页面</h2>
+        <h2>ログイン画面</h2>
         <br>
         <form action="/login" method="post">
             <div class="form-group">
-                <label for="exampleInputEmail1">帐号</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" th:value="${username}" name="username" placeholder="输入帐号">
+                <label for="exampleInputEmail1">ユーザーID</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" th:value="${username}" name="username" placeholder="ユーザーIDを入力してください">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">密码</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="输入密码">
+                <label for="exampleInputPassword1">パスワード</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="パスワードを入力してください">
             </div>
             <div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
@@ -37,11 +37,11 @@
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="display: flex; flex-direction: column; align-items: center;">
                     <div>
-                        <button type="submit" class="btn btn-default">登 录</button>
+                        <button type="submit" class="btn btn-default">ログイン</button>
                     </div>
                     <br>
                     <div>
-                        <a href="/signup">注册新账号</a>
+                        <a href="/signup">新規登録はコチラ</a>
                     </div>
                 </div>
             </div>
