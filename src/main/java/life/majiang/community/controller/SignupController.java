@@ -100,6 +100,7 @@ public class SignupController {
     newUser.setName(username);
     newUser.setAccountId(String.valueOf(accountIdPlus));
     newUser.setPassword(password1);
+    newUser.setAvatarUrl("/img/avatar.jpg");
     userService.createOrUpdate(newUser);
 
     response.addCookie(new Cookie("token", token));
