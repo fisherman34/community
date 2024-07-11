@@ -110,3 +110,95 @@
 2024-07-11 18:26:21.714 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : ==>  Preparing: update QUESTION set VIEW_COUNT = VIEW_COUNT + ? where id = ?
 2024-07-11 18:26:21.715 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : ==> Parameters: 1(Integer), 230(Long)
 2024-07-11 18:26:21.724 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : <==    Updates: 1
+2024-07-11 18:33:48.636  INFO 30129 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-07-11 18:33:48.648  INFO 30129 --- [Thread-16] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-07-11 18:33:48.650  INFO 30129 --- [Thread-16] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-07-11 18:33:48.661  INFO 30129 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2024-07-11 18:33:48.666  INFO 30129 --- [Thread-16] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2024-07-11 18:33:48.831  INFO 30129 --- [restartedMain] l.m.community.CommunityApplication       : Starting CommunityApplication using Java 17.0.6 on sam-Latitude-5450 with PID 30129 (/home/sam/IdeaProjects/community/target/classes started by sam in /home/sam/IdeaProjects/community)
+2024-07-11 18:33:48.831  INFO 30129 --- [restartedMain] l.m.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-11 18:33:49.326  INFO 30129 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2024-07-11 18:33:49.327  INFO 30129 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-11 18:33:49.327  INFO 30129 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2024-07-11 18:33:49.341  INFO 30129 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-11 18:33:49.342  INFO 30129 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 506 ms
+2024-07-11 18:33:49.380  INFO 30129 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2024-07-11 18:33:49.391  INFO 30129 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2024-07-11 18:33:49.391  INFO 30129 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/community'
+2024-07-11 18:33:49.841  INFO 30129 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-11 18:33:49.889  INFO 30129 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2024-07-11 18:33:49.899  INFO 30129 --- [restartedMain] l.m.community.CommunityApplication       : Started CommunityApplication in 1.118 seconds (JVM running for 847.637)
+2024-07-11 18:33:49.903  INFO 30129 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-11 18:33:49.910  INFO 30129 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-11 18:33:49.911  INFO 30129 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-11 18:33:49.912  INFO 30129 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-11 18:33:49.919 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, PASSWORD, BIO, AVATAR_URL from USERTABLE WHERE ( TOKEN = ? )
+2024-07-11 18:33:49.920 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.UserMapper.selectByExample  : ==> Parameters: 50c9418a-e805-49b4-b5da-acfd824c67b1(String)
+2024-07-11 18:33:49.921 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2024-07-11 18:33:49.927 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.N.countByExample                 : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? )
+2024-07-11 18:33:49.928 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.N.countByExample                 : ==> Parameters: 65(Long), 0(Integer)
+2024-07-11 18:33:49.929 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.N.countByExample                 : <==      Total: 1
+2024-07-11 18:33:49.932 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.Q.selectByPrimaryKey             : ==>  Preparing: select ID, TITLE, DESCRIPTION, GMT_CREATE, GMT_MODIFIED, CREATOR, COMMENT_COUNT, VIEW_COUNT, LIKE_COUNT, TAG from QUESTION where ID = ?
+2024-07-11 18:33:49.932 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.Q.selectByPrimaryKey             : ==> Parameters: 230(Long)
+2024-07-11 18:33:49.933 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.Q.selectByPrimaryKey             : <==      Total: 1
+2024-07-11 18:33:49.941 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, PASSWORD, BIO, AVATAR_URL from USERTABLE where ID = ?
+2024-07-11 18:33:49.942 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 65(Long)
+2024-07-11 18:33:49.944 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2024-07-11 18:33:49.945 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.QuestionExtMapper.selectRelated  : ==>  Preparing: select * from QUESTION where id != ? and tag regexp ?
+2024-07-11 18:33:49.946 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.QuestionExtMapper.selectRelated  : ==> Parameters: 230(Long), spring(String)
+2024-07-11 18:33:49.947 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.QuestionExtMapper.selectRelated  : <==      Total: 2
+2024-07-11 18:33:49.965 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.CommentMapper.selectByExample    : ==>  Preparing: select ID, PARENT_ID, TYPE, COMMENTATOR, GMT_CREATE, GMT_MODIFIED, LIKE_COUNT, CONTENT, COMMENT_COUNT from COMMENT WHERE ( PARENT_ID = ? and TYPE = ? ) order by gmt_create ASC
+2024-07-11 18:33:49.966 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.CommentMapper.selectByExample    : ==> Parameters: 230(Long), 1(Integer)
+2024-07-11 18:33:49.971 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.CommentMapper.selectByExample    : <==      Total: 0
+2024-07-11 18:33:49.972 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : ==>  Preparing: update QUESTION set VIEW_COUNT = VIEW_COUNT + ? where id = ?
+2024-07-11 18:33:49.973 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : ==> Parameters: 1(Integer), 230(Long)
+2024-07-11 18:33:49.974 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : <==    Updates: 1
+2024-07-11 18:33:50.216 DEBUG 30129 --- [http-nio-8887-exec-3] l.m.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, PASSWORD, BIO, AVATAR_URL from USERTABLE WHERE ( TOKEN = ? )
+2024-07-11 18:33:50.217 DEBUG 30129 --- [http-nio-8887-exec-3] l.m.c.mapper.UserMapper.selectByExample  : ==> Parameters: 50c9418a-e805-49b4-b5da-acfd824c67b1(String)
+2024-07-11 18:33:50.218 DEBUG 30129 --- [http-nio-8887-exec-3] l.m.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2024-07-11 18:33:50.220 DEBUG 30129 --- [http-nio-8887-exec-3] l.m.c.m.N.countByExample                 : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? )
+2024-07-11 18:33:50.220 DEBUG 30129 --- [http-nio-8887-exec-3] l.m.c.m.N.countByExample                 : ==> Parameters: 65(Long), 0(Integer)
+2024-07-11 18:33:50.221 DEBUG 30129 --- [http-nio-8887-exec-3] l.m.c.m.N.countByExample                 : <==      Total: 1
+2024-07-11 18:33:52.315  INFO 30129 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-07-11 18:33:52.318  INFO 30129 --- [Thread-20] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2024-07-11 18:33:52.318  INFO 30129 --- [Thread-20] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-07-11 18:33:52.326  INFO 30129 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2024-07-11 18:33:52.327  INFO 30129 --- [Thread-20] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2024-07-11 18:33:52.456  INFO 30129 --- [restartedMain] l.m.community.CommunityApplication       : Starting CommunityApplication using Java 17.0.6 on sam-Latitude-5450 with PID 30129 (/home/sam/IdeaProjects/community/target/classes started by sam in /home/sam/IdeaProjects/community)
+2024-07-11 18:33:52.456  INFO 30129 --- [restartedMain] l.m.community.CommunityApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-07-11 18:33:52.819  INFO 30129 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2024-07-11 18:33:52.820  INFO 30129 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-11 18:33:52.821  INFO 30129 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2024-07-11 18:33:52.835  INFO 30129 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-11 18:33:52.835  INFO 30129 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 376 ms
+2024-07-11 18:33:52.879  INFO 30129 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2024-07-11 18:33:52.883  INFO 30129 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2024-07-11 18:33:52.883  INFO 30129 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/community'
+2024-07-11 18:33:53.340  INFO 30129 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-07-11 18:33:53.415  INFO 30129 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2024-07-11 18:33:53.426  INFO 30129 --- [restartedMain] l.m.community.CommunityApplication       : Started CommunityApplication in 1.007 seconds (JVM running for 851.164)
+2024-07-11 18:33:53.432  INFO 30129 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-07-11 18:33:53.437  INFO 30129 --- [http-nio-8887-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-11 18:33:53.438  INFO 30129 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-11 18:33:53.439  INFO 30129 --- [http-nio-8887-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-07-11 18:33:53.448 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.UserMapper.selectByExample  : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, PASSWORD, BIO, AVATAR_URL from USERTABLE WHERE ( TOKEN = ? )
+2024-07-11 18:33:53.450 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.UserMapper.selectByExample  : ==> Parameters: 50c9418a-e805-49b4-b5da-acfd824c67b1(String)
+2024-07-11 18:33:53.462 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.UserMapper.selectByExample  : <==      Total: 1
+2024-07-11 18:33:53.476 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.N.countByExample                 : ==>  Preparing: select count(*) from NOTIFICATION WHERE ( RECEIVER = ? and STATUS = ? )
+2024-07-11 18:33:53.477 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.N.countByExample                 : ==> Parameters: 65(Long), 0(Integer)
+2024-07-11 18:33:53.478 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.N.countByExample                 : <==      Total: 1
+2024-07-11 18:33:53.481 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.Q.selectByPrimaryKey             : ==>  Preparing: select ID, TITLE, DESCRIPTION, GMT_CREATE, GMT_MODIFIED, CREATOR, COMMENT_COUNT, VIEW_COUNT, LIKE_COUNT, TAG from QUESTION where ID = ?
+2024-07-11 18:33:53.482 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.Q.selectByPrimaryKey             : ==> Parameters: 230(Long)
+2024-07-11 18:33:53.483 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.Q.selectByPrimaryKey             : <==      Total: 1
+2024-07-11 18:33:53.492 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select ID, ACCOUNT_ID, NAME, TOKEN, GMT_CREATE, GMT_MODIFIED, PASSWORD, BIO, AVATAR_URL from USERTABLE where ID = ?
+2024-07-11 18:33:53.492 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 65(Long)
+2024-07-11 18:33:53.493 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
+2024-07-11 18:33:53.495 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.QuestionExtMapper.selectRelated  : ==>  Preparing: select * from QUESTION where id != ? and tag regexp ?
+2024-07-11 18:33:53.496 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.QuestionExtMapper.selectRelated  : ==> Parameters: 230(Long), spring(String)
+2024-07-11 18:33:53.498 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.QuestionExtMapper.selectRelated  : <==      Total: 2
+2024-07-11 18:33:53.524 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.CommentMapper.selectByExample    : ==>  Preparing: select ID, PARENT_ID, TYPE, COMMENTATOR, GMT_CREATE, GMT_MODIFIED, LIKE_COUNT, CONTENT, COMMENT_COUNT from COMMENT WHERE ( PARENT_ID = ? and TYPE = ? ) order by gmt_create ASC
+2024-07-11 18:33:53.525 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.CommentMapper.selectByExample    : ==> Parameters: 230(Long), 1(Integer)
+2024-07-11 18:33:53.527 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.m.CommentMapper.selectByExample    : <==      Total: 0
+2024-07-11 18:33:53.528 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : ==>  Preparing: update QUESTION set VIEW_COUNT = VIEW_COUNT + ? where id = ?
+2024-07-11 18:33:53.528 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : ==> Parameters: 1(Integer), 230(Long)
+2024-07-11 18:33:53.531 DEBUG 30129 --- [http-nio-8887-exec-1] l.m.c.mapper.QuestionExtMapper.incView   : <==    Updates: 1
