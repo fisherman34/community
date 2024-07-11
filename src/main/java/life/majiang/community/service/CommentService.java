@@ -2,12 +2,11 @@ package life.majiang.community.service;
 
 import life.majiang.community.dto.CommentDTO;
 import life.majiang.community.enums.CommentTypeEnum;
+import life.majiang.community.enums.NotificationStatusEnum;
+import life.majiang.community.enums.NotificationTypeEnum;
 import life.majiang.community.exception.CustomizeErrorCode;
 import life.majiang.community.exception.CustomizeException;
-import life.majiang.community.mapper.CommentMapper;
-import life.majiang.community.mapper.QuestionExtMapper;
-import life.majiang.community.mapper.QuestionMapper;
-import life.majiang.community.mapper.UserMapper;
+import life.majiang.community.mapper.*;
 import life.majiang.community.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,10 +39,16 @@ public class CommentService {
   @Autowired
   private UserMapper userMapper;
 
+  @Autowired
+  private CommentExtMapper commentExtMapper;
+
+  @Autowired
+  private NotificationMapper notificationMapper;
+
   /** @Transactional注解使下面方法包裹在一个事物里面，如果commentMapper.insert执行成功，而questionExtMapper.incCommentCount
    * 执行失败时，事物会全部回滚掉 */
   @Transactional
-  public void insert(Comment comment) throws CustomizeException {
+  public void insert(Comment comment, User commentator) throws CustomizeException {
     if(comment.getParentId() == null) {
       throw new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
     }
@@ -56,24 +61,61 @@ public class CommentService {
       if (dbComment == null){
         throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
       }
+      //回复问题
+      Question question = questionMapper.selectByPrimaryKey(dbComment.getParentId());
+      if (question == null) {
+        throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+      }
+
       commentMapper.insert(comment);
+
+      // 增加评论数
+      Comment parentComment = new Comment();
+      parentComment.setId(comment.getParentId());
+      parentComment.setCommentCount(1);
+      commentExtMapper.incCommentCount(parentComment);
+
+      // 创建通知
+      createNotify(comment, dbComment.getCommentator(), commentator.getName(), question.getTitle(), NotificationTypeEnum.REPLY_COMMENT, question.getId());
+
     } else {
       //回复问题
       Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
       if (question == null) {
         throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
       }
+      comment.setCommentCount(0);
       commentMapper.insert(comment);
       question.setCommentCount(1);
       questionExtMapper.incCommentCount(question);
+
+      // 创建通知
+      createNotify(comment, question.getCreator(), commentator.getName(), question.getTitle(), NotificationTypeEnum.REPLY_QUESTION, question.getId());
+
     }
   }
 
-  public List<CommentDTO> listByQuestionId(Long id) {
+  private void createNotify(Comment comment, Long receiver, String notifiername, String outerTitle, NotificationTypeEnum notificationType, Long outerId) {
+    if (receiver == comment.getCommentator()) {
+      return;
+    }
+    Notification notification = new Notification();
+    notification.setGmtCreate(System.currentTimeMillis());
+    notification.setType(notificationType.getType());
+    notification.setOuterid(outerId);
+    notification.setNotifier(comment.getCommentator());
+    notification.setStatus(NotificationStatusEnum.UNREAD.getStatus());
+    notification.setReceiver(receiver);
+    notification.setNotifierName(notifiername);
+    notification.setOuterTitle(outerTitle);
+    notificationMapper.insert(notification);
+  }
+
+  public List<CommentDTO> listByTargetId(Long id, CommentTypeEnum type) {
     CommentExample commentExample = new CommentExample();
     commentExample.createCriteria()
             .andParentIdEqualTo(id)
-            .andTypeEqualTo(CommentTypeEnum.QUESTION.getType());
+            .andTypeEqualTo(type.getType());
     commentExample.setOrderByClause("gmt_create ASC");
     List<Comment> comments = commentMapper.selectByExample(commentExample);
 

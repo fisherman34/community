@@ -2,6 +2,7 @@ package life.majiang.community.service;
 
 import life.majiang.community.dto.PaginationDTO;
 import life.majiang.community.dto.QuestionDTO;
+import life.majiang.community.dto.QuestionQueryDTO;
 import life.majiang.community.exception.CustomizeErrorCode;
 import life.majiang.community.exception.CustomizeException;
 import life.majiang.community.mapper.QuestionExtMapper;
@@ -45,12 +46,20 @@ public class QuestionService {
    * list()方法生成的 List<QuestionDTO> 是对List<Question> questions的wrapper,
    * QuestionDTO比Question多一个user的field
    */
-  public PaginationDTO list(Integer page, Integer size) {
+  public PaginationDTO list(String search, Integer page, Integer size) {
+
+    if (StringUtils.isNotBlank(search)) {
+      String[] tags = StringUtils.split(search, " ");
+      String regexpTag = Arrays.stream(tags).collect(Collectors.joining("|"));
+    }
+
 
     PaginationDTO paginationDTO = new PaginationDTO();
     Integer totalPage; //一共显示多少页
 
-    Integer totalCount = (int) questionMapper.countByExample(new QuestionExample());  //获得表中记录的行数
+    QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+    questionQueryDTO.setSearch(search);
+    Integer totalCount =  questionExtMapper.countBySearch(questionQueryDTO);  //获得表中记录的行数
 
     if (totalCount % size == 0) {
       totalPage = totalCount / size;
@@ -69,7 +78,9 @@ public class QuestionService {
     Integer offset = size * (page -1);
     QuestionExample questionExample = new QuestionExample();
     questionExample.setOrderByClause("gmt_create desc");
-    List<Question> questions = questionMapper.selectByExampleWithRowbounds(questionExample, new RowBounds(offset, size));
+    questionQueryDTO.setSize(size);
+    questionQueryDTO.setPage(offset);
+    List<Question> questions = questionExtMapper.selectBySearch(questionQueryDTO);
     List<QuestionDTO> questionDTOList = new ArrayList<>();
 
     for (Question question : questions) {
@@ -79,7 +90,7 @@ public class QuestionService {
       questionDTO.setUser(user);
       questionDTOList.add(questionDTO);
     }
-    paginationDTO.setQuestions(questionDTOList);
+    paginationDTO.setData(questionDTOList);
 
 
     return paginationDTO;
@@ -125,7 +136,7 @@ public class QuestionService {
       questionDTO.setUser(user);
       questionDTOList.add(questionDTO);
     }
-    paginationDTO.setQuestions(questionDTOList);
+    paginationDTO.setData(questionDTOList);
 
 
     return paginationDTO;

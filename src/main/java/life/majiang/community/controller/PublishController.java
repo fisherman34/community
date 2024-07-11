@@ -1,9 +1,11 @@
 package life.majiang.community.controller;
 
+import life.majiang.community.cache.TagCache;
 import life.majiang.community.dto.QuestionDTO;
 import life.majiang.community.model.Question;
 import life.majiang.community.model.User;
 import life.majiang.community.service.QuestionService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,12 +36,14 @@ public class PublishController {
     model.addAttribute("description", question.getDescription());
     model.addAttribute("tag", question.getTag());
     model.addAttribute("id", question.getId());
+    model.addAttribute("tags", TagCache.get());
     return "publish";
   }
 
   /** 如果是get method的话就渲染页面 */
   @GetMapping("/publish")
-  public String publish() {
+  public String publish(Model model) {
+    model.addAttribute("tags", TagCache.get());
     return "publish";
   }
 
@@ -65,8 +69,10 @@ public class PublishController {
     model.addAttribute("title", title);
     model.addAttribute("description", description);
     model.addAttribute("tag", tag);
+    model.addAttribute("tags", TagCache.get());
 
-    description = description.replace("\n", "<br>");
+    //把换行符替换成<br>符号，因为换行符在HTML中会被解析成空格，无法正常显示
+//    description = description.replace("\n", "<br>");
 
     if(title == null || title == "") {
       model.addAttribute("error", "タイトルは空欄にできません");
@@ -81,8 +87,13 @@ public class PublishController {
       return "publish";
     }
 
-    User user = (User) request.getSession().getAttribute("user");
+    String invalid = TagCache.filterInvalid(tag);
+    if(StringUtils.isNotBlank(invalid)){
+      model.addAttribute("error", "間違ったタグを入力しました:" + invalid);
+      return "publish";
+    }
 
+    User user = (User) request.getSession().getAttribute("user");
     if(user == null ){
       model.addAttribute("error", "ユーザーがログインしていません");
       return "publish";

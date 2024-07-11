@@ -23,13 +23,15 @@ public class IndexController {
   @GetMapping("/")
   public String index(Model model,
                       @RequestParam(name = "page", defaultValue = "1") Integer page,
-                      @RequestParam(name = "size", defaultValue = "5") Integer size) {
+                      @RequestParam(name = "size", defaultValue = "5") Integer size,
+                      @RequestParam(name = "search", required = false) String search) {
 
-    PaginationDTO pagination = questionService.list(page, size);  //list方法显示主页内容
+    PaginationDTO pagination = questionService.list(search, page, size);  //list方法显示主页内容
     List<QuestionDTO> topViewedQuestions = questionService.selectTopViewedQuestions();
 
     model.addAttribute("pagination", pagination);
     model.addAttribute("topViewedQuestions", topViewedQuestions);
+    model.addAttribute("search", search);
 
     return "index";
   }

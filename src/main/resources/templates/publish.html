@@ -2,12 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>投稿する - Chat Plaza</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css"/>
     <link rel="stylesheet" href="/css/community.css"/>
+    <link rel="stylesheet" href="/css/editormd.min.css"/>
     <script src="/js/jquery-3.7.1.min.js" type="application/javascript"></script>
     <script src="/js/bootstrap.min.js" type="application/javascript"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
+    <script src="/js/editormd.min.js" type="application/javascript"></script>
 </head>
 <body>
 <div th:insert="navigation :: nav"></div>
@@ -37,15 +40,65 @@
                     The name="title" attribute is used to identify the field’s data
                     when the form is submitted
                     -->
-                    <input type="text" class="form-control" th:value="${title}" id="title" name="title" placeholder="タイトル......">
+                    <input type="text" class="form-control" th:value="${title}" id="title" name="title"
+                           placeholder="タイトル......"
+                           autocomplete="off">
                 </div>
-                <div class="form-group">
+                <div class="form-group" id="question-editor">
                     <label for="description">本文を書く</label>
-                    <textarea name="description" id="description" th:text="${description}" class="form-control" cols="30" rows="10"></textarea>
+                    <textarea name="description" id="description" th:text="${description}" style="display:none;"
+                              class="form-control"
+                              cols="30" rows="10"></textarea>
                 </div>
+                <script type="text/javascript">
+                  $(function() {
+                    var editor = editormd("question-editor", {
+                      width  : "100%",
+                      height : 350,
+                      path   : "/js/lib/",
+                      delay: 0,
+                      watch: false,
+                      placeholder: "本文を書く",
+                      imageUpload    : true,
+                      imageFormats   : ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                      imageUploadURL : "/file/upload",
+                    });
+                  });
+                </script>
                 <div class="form-group">
                     <label for="tag">キーワードを加える</label>
-                    <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag" placeholder="キーワードを入力してください">
+                    <input type="text" class="form-control" th:value="${tag}" id="tag" name="tag"
+                           autocomplete="off"
+                           placeholder="キーワードを入力してください"
+                           onclick="showSelectTag()"
+                    >
+                    <div id="select-tag" class="publish-tag-tab">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" th:each="selectCategory, selectCategoryStat: ${tags}" th:class="${selectCategoryStat.first ? 'active':''}">
+                                <a th:href="${'#'+selectCategory.categoryName}" aria-controls="home" role="tab"
+                                   data-toggle="tab" th:text="${selectCategory.categoryName}"></a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" th:id="${selectCategory.categoryName}"
+                                 th:each="selectCategory: ${tags}"
+                                 th:class="${selectCategoryStat.first ? 'active tab-pane':'tab-pane'}">
+                                <span class="label label-info" th:each="selectTag: ${selectCategory.tags}">
+                                    <span class="glyphicon glyphicon-tags"
+                                          onclick="selectTag(this)" th:data-tag="${selectTag}"
+                                          th:text="${' '+selectTag}"></span>
+                                </span>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                <span class="label label-info">
+                                    <span class="glyphicon glyphicon-tags"
+                                          onclick="selectTag('Spring')">Spring</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="container-fluid main">
                     <div class="row">
@@ -74,5 +127,6 @@
         </div>
     </div>
 </div>
+<div th:insert="footer :: foot"></div>
 </body>
 </html>
